@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Cf_VirtualProduct>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Cf_VirtualProduct>
+    </modules>
+</config>

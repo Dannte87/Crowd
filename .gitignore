@@ -1,0 +1,17 @@
+/app/code/community/*
+/app/code/core/*
+/app/code/adminhtml/*
+/app/code/install/*
+/app/code/frontend/base*
+/app/code/frontend/default*
+/app/code/locale/*
+/dev/*
+/downloader/*
+/includes/*
+/js/*
+/lib/*
+/media/*
+/shell/*
+/var/*
+/skin/adminhtml/*
+/skin/install/*
