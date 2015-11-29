@@ -28,10 +28,10 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Sat, 24 Oct 2015 14:03:41 +0000]]></date>
+            <date><![CDATA[Wed, 30 Sep 2015 19:08:56 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[f411d361142ad582d36c0b448b5c07b5]]></key>
+            <key><![CDATA[16cf8d40db145a522df6c5ec1220e5f0]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
@@ -40,10 +40,10 @@
             </db>
             <default_setup>
                 <connection>
-                    <host><![CDATA[localhost]]></host>
+                    <host><![CDATA[127.0.0.1]]></host>
                     <username><![CDATA[root]]></username>
-                    <password><![CDATA[devill0ve]]></password>
-                    <dbname><![CDATA[crowdfunding_develop]]></dbname>
+                    <password><![CDATA[shumaxer86]]></password>
+                    <dbname><![CDATA[magento_learning]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
@@ -53,6 +53,18 @@
             </default_setup>
         </resources>
         <session_save><![CDATA[files]]></session_save>
+        <cms>
+            <layouts>
+                <redirect>
+                    <label>Home page</label>
+                    <template>page/home-page.phtml</template>
+                </redirect>
+                <project_list>
+                    <label>Project list</label>
+                    <template>page/projecr-list.phtml</template>
+                </project_list>
+            </layouts>
+        </cms>
     </global>
     <admin>
         <routers>

@@ -18,6 +18,27 @@
                 <class>Cf_VirtualProduct_Helper</class>
             </virtualproduct>
         </helpers>
+        <events>
+            <checkout_cart_update_items_after>
+                <observers>
+                    <Cf_VirtualProduct_Model_CartEvent>
+                        <type>singleton</type>
+                        <class>Cf_VirtualProduct_Model_CartEvent</class>
+                        <method>addtocartEvent</method>
+                    </Cf_VirtualProduct_Model_CartEvent>
+                </observers>
+            </checkout_cart_update_items_after>
+
+            <checkout_controller_onepage_save_shipping_method>
+                <observers>
+                    <Cf_VirtualProduct_Model_OnShipping>
+                        <type>singleton</type>
+                        <class>Cf_VirtualProduct_Model_OnShipping</class>
+                        <method>updateShipping</method>
+                    </Cf_VirtualProduct_Model_OnShipping>
+                </observers>
+            </checkout_controller_onepage_save_shipping_method>
+        </events>
     </global>
     <frontend>
         <routers>

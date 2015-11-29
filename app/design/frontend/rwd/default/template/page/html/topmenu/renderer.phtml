@@ -34,49 +34,40 @@ $children = $menuTree->getChildren();
 $parentLevel = $menuTree->getLevel();
 $childLevel = is_null($parentLevel) ? 0 : $parentLevel + 1;
 
-$counter = 1;
+$counter = 0.5;
 $childrenCount = $children->count();
 
 $parentPositionClass = $menuTree->getPositionClass();
 $itemPositionClassPrefix = $parentPositionClass ? $parentPositionClass . '-' : 'nav-';
-
-foreach ($children as $child) {
-    $child->setLevel($childLevel);
-    $child->setIsFirst($counter == 1);
-    $child->setIsLast($counter == $childrenCount);
-    $child->setPositionClass($itemPositionClassPrefix . $counter);
-
-    $outermostClassCode = 'level'. $childLevel;
-    $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';
-
-    $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .'>';
-
-    $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
-
-    if (!empty($childrenWrapClass)) {
-        $html .= '<div class="'. $childrenWrapClass .'">';
-    }
-
-    $nextChildLevel = $childLevel + 1;
-
-    if (!empty($_hasChildren)) {
-        $html .= '<ul class="level'. $childLevel .'">';
-        $html .=     '<li class="level'. $nextChildLevel .' view-all">';
-        $html .=         '<a class="level'. $nextChildLevel .'" href="'. $child->getUrl() .'">';
-        $html .=             $this->__('View All') . ' ' . $this->escapeHtml($this->__($child->getName()));
-        $html .=         '</a>';
-        $html .=     '</li>';
-        $html .=     $this->render($child, $childrenWrapClass);
-        $html .= '</ul>';
-    }
-
-    if (!empty($childrenWrapClass)) {
-        $html .= '</div>';
-    }
-
-    $html .= '</li>';
-
-    $counter++;
+//$html .= '<div class="col-md-3 text-center">';
+foreach ($children as $k => $child) {
+    $category_node = $child->getData('id');
+    $category_id = str_replace('category-node-', '', $category_node);
+    $category = Mage::getModel('catalog/category')->load($category_id);
+    $description = $category->getData('description');
+    $html .= "<div class='col-md-3 text-center'><div class='single_service wow fadeInUp' data-wow-delay='" . $counter . "s'>
+    <a href='". $child->getUrl() ."' class='". $outermostClassCode ." ". $_hasChildren ."'>
+        <h2>" . $this->escapeHtml($this->__($child->getName())) . "</h2>
+        </a>
+    <p>" . $description . " </p>
+    </div></div>";
+//    $child->setLevel($childLevel);
+//    $child->setIsFirst($counter == 1);
+//    $child->setIsLast($counter == $childrenCount);
+//    $child->setPositionClass($itemPositionClassPrefix . $counter);
+//
+//    $outermostClassCode = 'level'. $childLevel;
+//    $_hasChildren = ($child->hasChildren()) ? 'has-children' : '';
+//
+//    $html .= '<div class="single_service wow fadeInUp" data-wow-delay="' . $counter . 's">';
+////    $html .= '<li '. $this->_getRenderedMenuItemAttributes($child) .'>';
+//
+//    $html .= '<a href="'. $child->getUrl() .'" class="'. $outermostClassCode .' '. $_hasChildren .'">'. $this->escapeHtml($this->__($child->getName())) .'</a>';
+//
+//    $html .= '</div';
+//
+    $counter = $counter + 0.5;
 }
 
+//$html .= '</div';
 return $html;

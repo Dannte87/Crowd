@@ -11,8 +11,7 @@ class Cf_VirtualProduct_IndexController extends Mage_Core_Controller_Front_Actio
     }
 
     $cat = Mage::helper('virtualproduct/Categories')->categoriesList();
-    var_dump($cat);
-    die();
+
     $this->loadLayout();
     $this->renderLayout();
   }

@@ -38,6 +38,16 @@
                 <action method="addJs"><script>prototype/prototype.js</script></action>
                 <action method="addJs"><script>lib/jquery/jquery-1.10.2.min.js</script></action>
                 <action method="addJs"><script>lib/jquery/noconflict.js</script></action>
+                <action method="addItem"><type>skin_js</type><name>js/jquery.mixitup.js</name></action>
+
+                <!--CF JS-->
+                <action method="addItem"><type>skin_js</type><name>js/bootstrap.min.js</name></action>
+                <!--<action method="addJs"><script>skin/frontend/rwd/default/js/bootstrap.min.js</script></action>-->
+                <action method="addItem"><type>skin_js</type><name>js/jquery.nicescroll.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/owl.carousel.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/wow.js</name></action>
+                <action method="addItem"><type>skin_js</type><name>js/script.js</name></action>
+                <!--&#45;&#45;&#45;&#45; -->
                 <action method="addJs"><script>lib/ccard.js</script></action>
                 <action method="addJs"><script>prototype/validation.js</script></action>
                 <action method="addJs"><script>scriptaculous/builder.js</script></action>
@@ -66,17 +76,30 @@
                 <action method="addItem"><type>skin_js</type><name>js/lib/jquery.cycle2.swipe.min.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/slideshow.js</name></action>
                 <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
-                <action method="addLinkRel"><rel>stylesheet</rel><href>//fonts.googleapis.com/css?family=Raleway:300,400,500,700,600</href></action>
+
+
+
+                <action method="addLinkRel"><rel>stylesheet</rel><href>http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800</href></action>
+                <action method="addLinkRel"><rel>stylesheet</rel><href>http://fonts.googleapis.com/css?family=Montserrat:400,700</href></action>
+                <action method="addLinkRel"><rel>stylesheet</rel><href>http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css</href></action>
                 <action method="addItem"><type>skin_js</type><name>js/minicart.js</name></action>
 
                 <!-- Add stylesheets with no media queries for use in IE 8 and below -->
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action>
                 <action method="addItem"><type>skin_css</type><name>css/madisonisland-ie8.css</name><params/><if><![CDATA[ (lte IE 8) & (!IEMobile)]]></if></action>
-
+                
+                <action method="addItem"><type>skin_css</type><name>css/preloader.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
                 <!-- Add stylesheets with media queries for use by modern browsers -->
-                <action method="addItem"><type>skin_css</type><name>css/bootstrap.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/styles.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
-                <action method="addItem"><type>skin_css</type><name>css/madisonisland.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>style.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                 <action method="addItem"><type>skin_css</type><name>css/animate.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/bootstrap.min.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/style.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/responsive.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/owl.carousel.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+                <action method="addItem"><type>skin_css</type><name>css/owl.theme.default.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+
+                <action method="addItem"><type>skin_css</type><name>layout.css</name><params/><if><![CDATA[<!--[if (gte IE 9) | (IEMobile)]><!-->]]></if></action>
+
 
                 <!-- Sets viewport meta tag using text block -->
                 <block type="core/text" name="head.viewport">
@@ -88,16 +111,20 @@
                 <label>Page Top</label>
             </block>
 
+            <!--<block type="core/text_list" name="newreference" as="newreference"/>-->
+
+            <block type="core/text_list" name="short_statistics" as="short_statistics"/>
+            <block type="core/text_list" name="top_products" as="top_products"/>
+            <block type="core/text_list" name="home_subscribe" as="home_subscribe"/>
+            <block type="core/text_list" name="social_icons" as="social_icons"/>
+
             <block type="page/html_notices" name="global_notices" as="global_notices" template="page/html/notices.phtml" />
 
             <block type="page/html_header" name="header" as="header">
                 <block type="page/template_links" name="top.links" as="topLinks"/>
                 <block type="page/switch" name="store_language" as="store_language" template="page/switch/languages.phtml"/>
                 <block type="core/text_list" name="top.menu" as="topMenu" translate="label">
-                    <label>Navigation Bar</label>
-                    <block type="page/html_topmenu" name="catalog.topnav" template="page/html/topmenu.phtml">
-                        <block type="page/html_topmenu_renderer" name="catalog.topnav.renderer" template="page/html/topmenu/renderer.phtml"/>
-                    </block>
+
                 </block>
                 <block type="page/html_wrapper" name="top.container" as="topContainer" translate="label">
                     <label>Page Header</label>
@@ -178,9 +205,9 @@
                 <action method="addItem"><type>skin_css</type><name>css/styles-ie.css</name><params/><if>lt IE 8</if></action>
                 <action method="addCss"><stylesheet>css/widgets.css</stylesheet></action>
                 <action method="addCss"><stylesheet>css/print.css</stylesheet><params>media="print"</params></action>
-                <action method="addCss"><stylesheet>css/bootstrap.css</stylesheet></action>
+
                 <action method="addItem"><type>js</type><name>lib/ds-sleight.js</name><params/><if>lt IE 7</if></action>
-                <action method="addItem"><type>skin_js</type><name>js/iehover-fix.js</name><params/><if>lt IE 7</if></action>
+                <!--<action method="addItem"><type>skin_js</type><name>js/iehover-fix.js</name><params/><if>lt IE 7</if></action>-->
             </block>
 
             <block type="core/text_list" name="content" as="content" translate="label">
