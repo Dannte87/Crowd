@@ -29,15 +29,25 @@
                 </observers>
             </checkout_cart_update_items_after>
 
-            <checkout_controller_onepage_save_shipping_method>
-                <observers>
-                    <Cf_VirtualProduct_Model_OnShipping>
-                        <type>singleton</type>
-                        <class>Cf_VirtualProduct_Model_OnShipping</class>
-                        <method>updateShipping</method>
-                    </Cf_VirtualProduct_Model_OnShipping>
-                </observers>
-            </checkout_controller_onepage_save_shipping_method>
+            <!--<checkout_controller_onepage_save_shipping_method>-->
+                <!--<observers>-->
+                    <!--<Cf_VirtualProduct_Model_OnShipping>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>Cf_VirtualProduct_Model_OnShipping</class>-->
+                        <!--<method>updateShipping</method>-->
+                    <!--</Cf_VirtualProduct_Model_OnShipping>-->
+                <!--</observers>-->
+            <!--</checkout_controller_onepage_save_shipping_method>-->
+
+            <!--<sales_quote_add_item>-->
+                <!--<observers>-->
+                    <!--<Cf_VirtualProduct_Model_UpdatePrice>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>Cf_VirtualProduct_Model_UpdatePrice</class>-->
+                        <!--<method>updatePrice</method>-->
+                    <!--</Cf_VirtualProduct_Model_UpdatePrice>-->
+                <!--</observers>-->
+            <!--</sales_quote_add_item>-->
         </events>
     </global>
     <frontend>

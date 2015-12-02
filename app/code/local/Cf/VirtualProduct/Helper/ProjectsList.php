@@ -19,9 +19,14 @@ class Cf_VirtualProduct_Helper_ProjectsList extends Mage_Core_Helper_Abstract
     foreach ($collection as $project) {
       $image = $project->getThumbnail() == 'no_selection' ? $project->getImageUrl()
                                                           : $productMediaConfig->getMediaUrl($project->getThumbnail());
+      $description = $project->getShortDescription();
+
+      if (strlen($description) > 220) {
+        $description = substr($description, 0, 250);
+      }
       $projectsList[] = array(
         'name' => $project->getName(),
-        'shortDescription' => $project->getShortDescription(),
+        'shortDescription' => $description,
         'image' => $image,
         'link' => $project->getProductUrl()
       );
